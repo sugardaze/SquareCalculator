@@ -1,0 +1,5 @@
+result_df = spark.sql("""
+    SELECT p.ProductName, COALESCE(c.CategoryName, 'No Category') as CategoryName
+    FROM products p
+    LEFT JOIN categories c ON p.ProductID = c.CategoryID
+""")
